@@ -22,14 +22,10 @@
     <string name="la_marque_de_votre_premier_t_l_phone">la marque de votre premier téléphone</string>
     <string name="confirmez_le_mot_de_passe">Confirmez le mot de passe</string>
     <string name="title_activity_home">Home</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="nouvel_l_ve">Nouvel élève</string>
+    <string name="a_propos">A propos</string>
+    <string name="bienvenue_dans_le_petit_carnet_du_r_p_titeur_organis_et_fiable">Bienvenue dans le petit carnet du répétiteur organisé et fiable</string>
+    <string name="pas_d_l_ve">no student</string>
 </resources>

@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-;import com.MouanjiFranck.biller.databinding.FragmentGalleryBinding;
+import com.MouanjiFranck.biller.databinding.FragmentGalleryBinding;
 
 public class GalleryFragment extends Fragment {
 
@@ -20,7 +20,7 @@ public class GalleryFragment extends Fragment {
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
+
 
         return root;
     }

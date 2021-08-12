@@ -9,9 +9,9 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:title="Nouvel élève" />
+            android:title="@string/nouvel_l_ve" />
         <item
             android:id="@+id/nav_slideshow"
-            android:title="A propos" />
+            android:title="@string/a_propos" />
     </group>
 </menu>

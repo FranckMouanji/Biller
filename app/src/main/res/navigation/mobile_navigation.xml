@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.MouanjiFranck.biller.fragment.GalleryFragment"
-        android:label="Nouvel élève"
+        android:label="@string/nouvel_l_ve"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.MouanjiFranck.biller.fragment.SlideshowFragment"
-        android:label="A propos"
+        android:label="@string/a_propos"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

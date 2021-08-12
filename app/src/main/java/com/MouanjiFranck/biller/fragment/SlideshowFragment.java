@@ -23,7 +23,7 @@ public class SlideshowFragment extends Fragment {
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
+//        final TextView textView = binding.textSlideshow;
 
         return root;
     }

@@ -14,6 +14,8 @@
     <string name="email">Email</string>
     <string name="nom">First Name</string>
     <string name="prenom">Last Name</string>
+    <string name="title_activity_home">Home</string>
+    <string name="menu_home">Home</string>
     <string name="pas_de_compte_cr_er_un">no account? create</string>
     <string name="mot_de_passe_oubli">Forgot your password</string>
     <string name="veuillez_entrer_des_reponses_correctes">Please enter correct answers</string>
@@ -21,4 +23,8 @@
     <string name="votre_surnom_de_jeunesse">your youthful nickname</string>
     <string name="la_marque_de_votre_premier_t_l_phone">the brand of your first phone</string>
     <string name="confirmez_le_mot_de_passe">Confirm the password</string>
+    <string name="nouvel_l_ve">New student</string>
+    <string name="a_propos">About us</string>
+    <string name="bienvenue_dans_le_petit_carnet_du_r_p_titeur_organis_et_fiable">Welcome to the small, organized and reliable tutor\'s notebook</string>
+    <string name="pas_d_l_ve">pas d\'élève</string>
 </resources>

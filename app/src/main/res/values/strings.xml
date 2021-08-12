@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Biller</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="envoyer">envoyer</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="email">Email</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prenom</string>
+    <string name="pas_de_compte_cr_er_un">pas de compte? Créer un</string>
+    <string name="mot_de_passe_oubli">mot de passe oublié</string>
+    <string name="veuillez_entrer_des_reponses_correctes">Veuillez entrer des reponses correctes</string>
+    <string name="votre_animal_pr_f_r">votre animal préféré</string>
+    <string name="votre_surnom_de_jeunesse">votre surnom de jeunesse</string>
+    <string name="la_marque_de_votre_premier_t_l_phone">la marque de votre premier téléphone</string>
+    <string name="confirmez_le_mot_de_passe">Confirmez le mot de passe</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+</resources>

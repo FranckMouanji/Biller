@@ -29,7 +29,32 @@
     <string name="bienvenue_dans_le_petit_carnet_du_r_p_titeur_organis_et_fiable">Bienvenue dans le petit carnet du répétiteur organisé et fiable</string>
     <string name="pas_d_l_ve">no student</string>
     <string name="suivant">Suivant</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="r_initialisation_votre_mot_de_passe">Réinitialisation votre mot de passe</string>
+    <string name="annuler">annuler</string>
+    <string name="nom_du_parent">nom du parent</string>
+    <string name="prenom_du_parent">prenom du parent</string>
+    <string name="date_de_payement">Date de payement</string>
+
+    <string-array name="classe">
+        <item>Niveau scolaire</item>
+        <item>Tle C</item>
+        <item>Tle D</item>
+        <item>Tle A All</item>
+        <item>Tle A Esp</item>
+        <item>Première C</item>
+        <item>Première D</item>
+        <item>Première A All</item>
+        <item>Première A Esp</item>
+        <item>Seconde C</item>
+        <item>Seconde A All</item>
+        <item>Seconde A Esp</item>
+        <item>3eme All</item>
+        <item>3eme Esp</item>
+        <item>4eme All</item>
+        <item>4eme Esp</item>
+        <item>5eme</item>
+        <item>6eme</item>
+        <item>CM2</item>
+        <item>CM1</item>
+    </string-array>
 </resources>

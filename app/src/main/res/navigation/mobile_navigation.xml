@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.MouanjiFranck.biller.fragment.GalleryFragment"
+        android:name="com.MouanjiFranck.biller.fragment.FileFragment"
         android:label="@string/nouvel_l_ve"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_file" />
 
     <fragment
         android:id="@+id/nav_slideshow"

@@ -10,9 +10,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
-        android:gravity="center"
         >
+
+        <TextView
+            android:id="@+id/admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Outils d'admin"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            />
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Changer de mot de passe"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:id="@+id/logout"
@@ -20,6 +57,8 @@
             android:layout_height="wrap_content"
             android:text="Deconnexion"
             android:textColor="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
             android:textSize="20sp"
             />
 

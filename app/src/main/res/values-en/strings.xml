@@ -12,8 +12,8 @@
     <string name="envoyer">send</string>
     <string name="mot_de_passe">Password</string>
     <string name="email">Email</string>
-    <string name="nom">First Name</string>
-    <string name="prenom">Last Name</string>
+    <string name="nom">Name</string>
+    <string name="prenom">First Name</string>
     <string name="title_activity_home">Home</string>
     <string name="menu_home">Home</string>
     <string name="pas_de_compte_cr_er_un">no account? create</string>
@@ -29,4 +29,8 @@
     <string name="pas_d_l_ve">pas d\'élève</string>
     <string name="suivant">Next</string>
     <string name="r_initialisation_votre_mot_de_passe">Reset your password</string>
+    <string name="annuler">Cancel</string>
+    <string name="nom_du_parent">Parent\'s name</string>
+    <string name="prenom_du_parent">Parent\'s first name</string>
+    <string name="date_de_payement">Payment date</string>
 </resources>

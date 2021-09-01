@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 
@@ -14,8 +15,11 @@ import com.MouanjiFranck.biller.Activities.HomeActivity;
 import com.MouanjiFranck.biller.Activities.Questions;
 import com.MouanjiFranck.biller.Activities.UpdatePassword;
 import com.MouanjiFranck.biller.model.Answers;
+import com.MouanjiFranck.biller.model.Contrats;
+import com.MouanjiFranck.biller.model.Students;
 import com.MouanjiFranck.biller.model.Users;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
@@ -32,8 +36,10 @@ public class FirebaseControle {
     @SuppressLint("StaticFieldLeak")
     static FirebaseFirestore db = FirebaseFirestore.getInstance();
     static FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    static String USERCOLLECTION = "Users";
-    static String ANSWERCOLLECTION = "Answers";
+    final static String USERCOLLECTION = "Users";
+    final static String ANSWERCOLLECTION = "Answers";
+    final static String STUDENTCOLLECTION = "Students";
+    final static String CONTRATCOLLECTION = "Contrats";
 
 
     /**
@@ -107,6 +113,7 @@ public class FirebaseControle {
         });
     }
 
+    //defaut user
     public static void autoConnexion(){
         String mail = "biller@gmail.com";
         String password = "password";
@@ -157,6 +164,10 @@ public class FirebaseControle {
     private static Task<QuerySnapshot> getParticularData(String collectionName, String field, String value){
         return getCollection(collectionName).whereEqualTo(field, value).get();
     }
+
+    /**
+     * fonctions lié à l'utilisateur
+     */
 
     public static void verifMailForPassword(String collectionName, String field, String value, Context context){
         ProgressDialog progressDialog = ProgressDialog.show(context, null, "un instant");
@@ -250,7 +261,7 @@ public class FirebaseControle {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        FirebaseControle.getCollection("Users").document(id).update("password", passWord_encryp);
+        FirebaseControle.getCollection(USERCOLLECTION).document(id).update("password", passWord_encryp);
     }
 
 
@@ -282,4 +293,35 @@ public class FirebaseControle {
         });
     }
 
+    /**
+     * fonction de gestion d'élèves
+     */
+
+    public static void addStudent(Context context, Students students, Contrats contrats){
+        ProgressDialog progressDialog = ProgressDialog.show(context, null, "un instant");
+        progressDialog.show();
+        addData(STUDENTCOLLECTION, students).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                String id = documentReference.getId();
+                FirebaseControle.getCollection(STUDENTCOLLECTION).document(id).update("id", id);
+                contrats.setId_student(id);
+                addData(CONTRATCOLLECTION, contrats).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        FirebaseControle.getCollection(CONTRATCOLLECTION).document(documentReference.getId()).update("id_contrat", documentReference.getId());
+                        progressDialog.dismiss();
+                        ((Activity)context).finish();
+                    }
+                });
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                progressDialog.dismiss();
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
 }

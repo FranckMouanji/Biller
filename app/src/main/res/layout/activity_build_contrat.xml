@@ -25,10 +25,24 @@
     </com.google.android.material.appbar.MaterialToolbar>
 
     <ScrollView
+        android:id="@+id/part_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:layout_gravity="center">
+
+        <include
+            layout="@layout/add_student"/>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/part_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
         android:layout_gravity="center"
+        android:visibility="gone"
         >
 
         <LinearLayout
@@ -37,6 +51,40 @@
             android:orientation="vertical"
             android:gravity="center"
             >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numero du parent"
+                android:textColorHint="@color/white"
+                android:layout_marginBottom="30dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:inputType="phone"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/second_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numero secondaire"
+                android:textColorHint="@color/white"
+                android:layout_marginBottom="30dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:inputType="phone"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/salaire"
@@ -56,61 +104,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/date_effet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Prise d'effet du contrat"
-                android:textColorHint="@color/white"
-                android:layout_marginBottom="30dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:inputType="textEmailAddress"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Numero du parent"
-                android:textColorHint="@color/white"
-                android:layout_marginBottom="30dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:inputType="textEmailAddress"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/second_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Numero secondaire"
-                android:textColorHint="@color/white"
-                android:layout_marginBottom="30dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:inputType="textEmailAddress"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/stu_date_payement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prenom"
+                android:hint="@string/date_de_payement"
                 android:textColorHint="@color/white"
                 android:layout_marginBottom="30dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -118,13 +115,17 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:textColor="@color/white"
                     android:inputType="date"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+
             <Button
-                android:id="@+id/next"
+                android:id="@+id/build_send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/envoyer"/>

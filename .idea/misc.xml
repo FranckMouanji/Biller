@@ -13,6 +13,7 @@
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/activity_login.xml" value="0.12681159420289856" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/activity_main.xml" value="0.1331521739130435" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/activity_questions.xml" value="0.12047101449275362" />
+        <entry key="..\:/Android/project/Biller/app/src/main/res/layout/add_student.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/app_bar_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/content_home.xml" value="0.12047101449275362" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/fragment_compte.xml" value="0.20416666666666666" />
@@ -20,9 +21,12 @@
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/fragment_home.xml" value="0.18840579710144928" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/nav_header_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/project/Biller/app/src/main/res/layout/spinner_dropdown_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/project/Biller/app/src/main/res/layout/spinner_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/update_password.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/menu/activity_home_drawer.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/menu/home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/project/Biller/app/src/main/res/xml/spinner_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

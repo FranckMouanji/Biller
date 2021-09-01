@@ -1,5 +1,7 @@
 package com.MouanjiFranck.biller.controller;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 
 import java.io.File;
@@ -14,6 +16,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +31,9 @@ import androidx.annotation.NonNull;
 //import com.google.firebase.firestore.QueryDocumentSnapshot;
 //import com.google.firebase.firestore.QuerySnapshot;
 
+import com.MouanjiFranck.biller.Activities.BuildContrat;
 import com.MouanjiFranck.biller.Activities.Login;
+import com.MouanjiFranck.biller.R;
 import com.MouanjiFranck.biller.model.Users;
 
 import java.io.BufferedReader;
@@ -159,6 +167,11 @@ public class Controller {
         return information_user_take;
     }
 
+    public static String recupEmailUser(Context context){
+        String [] informations = take_information_of_file_users(context).split(" {2}");
+        return  informations[0];
+    }
+
 
     private static SecretKeySpec generateKey(String encoding_word_pass) throws Exception{
         final MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -188,5 +201,39 @@ public class Controller {
         return decrypted_value;
     }
 
+
+    //boite de dialogue personnalisé
+
+    public static void addUserDialog(final Context context){
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.add_student);
+        dialog.setCancelable(true);
+
+        //initialisation du contenu
+
+
+
+        //les actions
+
+        dialog.show();
+
+
+    }
+
+    public static void showDatePickerDialog(Context context, final EditText editText){
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                (Activity)context,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                        editText.setText(i+"/"+i1+"/"+i2);
+                    }
+                },
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+        datePickerDialog.show();
+    }
 
 }

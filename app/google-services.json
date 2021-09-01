@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193803496342",
+    "project_id": "biller-8032f",
+    "storage_bucket": "biller-8032f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193803496342:android:0b336d2405ffa0bfde4bb7",
+        "android_client_info": {
+          "package_name": "com.MouanjiFranck.biller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193803496342-6hqts6tjr3hvfnqvrnhjnkdgc1nogdnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWoJwd0CMVfwcyN7YO1W3Qr_4ALrqLRvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193803496342-6hqts6tjr3hvfnqvrnhjnkdgc1nogdnp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

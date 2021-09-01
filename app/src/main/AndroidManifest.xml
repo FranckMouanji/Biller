@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.MouanjiFranck.biller">
+    package="com.MouanjiFranck.biller" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -8,7 +13,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Biller">
+        android:theme="@style/Theme.Biller" >
+        <activity
+            android:name=".Activities.UpdatePassword"
+            android:exported="true" />
         <activity
             android:name=".Activities.BuildContrat"
             android:exported="true" />
@@ -17,7 +25,6 @@
             android:exported="true"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Biller.NoActionBar" />
-
         <activity
             android:name=".Activities.Questions"
             android:exported="true" />
@@ -27,10 +34,9 @@
         <activity
             android:name=".Activities.Login"
             android:exported="true" />
-
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

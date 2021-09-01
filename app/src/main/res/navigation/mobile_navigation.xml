@@ -22,4 +22,10 @@
         android:name="com.MouanjiFranck.biller.fragment.SlideshowFragment"
         android:label="@string/a_propos"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_compte"
+        android:name="com.MouanjiFranck.biller.fragment.CompteFragment"
+        android:label="mon compte"
+        tools:layout="@layout/fragment_compte" />
 </navigation>

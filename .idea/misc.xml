@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/project/Biller/app/src/main/res/drawable/background.xml" value="0.2203125" />
+        <entry key="..\:/Android/project/Biller/app/src/main/res/drawable/background_students.xml" value="0.2203125" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2203125" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2203125" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2203125" />
@@ -20,7 +21,9 @@
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/fragment_gallery.xml" value="0.18840579710144928" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/fragment_home.xml" value="0.18840579710144928" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
+        <entry key="..\:/Android/project/Biller/app/src/main/res/layout/layout_content.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/nav_header_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/project/Biller/app/src/main/res/layout/signature.xml" value="0.1" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/spinner_dropdown_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/spinner_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/project/Biller/app/src/main/res/layout/update_password.xml" value="0.20416666666666666" />

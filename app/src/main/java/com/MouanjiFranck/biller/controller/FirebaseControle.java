@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -14,6 +16,7 @@ import androidx.annotation.NonNull;
 import com.MouanjiFranck.biller.Activities.HomeActivity;
 import com.MouanjiFranck.biller.Activities.Questions;
 import com.MouanjiFranck.biller.Activities.UpdatePassword;
+import com.MouanjiFranck.biller.adapter.StudentsAdapter;
 import com.MouanjiFranck.biller.model.Answers;
 import com.MouanjiFranck.biller.model.Contrats;
 import com.MouanjiFranck.biller.model.Students;
@@ -28,8 +31,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class FirebaseControle {
 
@@ -138,6 +146,10 @@ public class FirebaseControle {
         return db.collection(collectionName);
     }
 
+    public static CollectionReference getStudentsCollection(){
+        return getCollection(STUDENTCOLLECTION);
+    }
+
     //add data to firebase
     private static Task<DocumentReference> addData(String collectionName, Object data){
         return getCollection(collectionName).add(data);
@@ -157,12 +169,16 @@ public class FirebaseControle {
     }
 
     //get data from firebase
-    private static Task<QuerySnapshot> getData(String collectionName){
+    private static Task<QuerySnapshot> getAllData(String collectionName){
         return getCollection(collectionName).get();
     }
 
     private static Task<QuerySnapshot> getParticularData(String collectionName, String field, String value){
         return getCollection(collectionName).whereEqualTo(field, value).get();
+    }
+
+    private static Task<QuerySnapshot> getParticularDataOdrer(String collectionName, String field, String value, String fieldOrder){
+        return getCollection(collectionName).orderBy(fieldOrder, Query.Direction.DESCENDING).whereEqualTo(field, value).get();
     }
 
     /**
@@ -236,20 +252,14 @@ public class FirebaseControle {
                             e.printStackTrace();
                         }
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(context, "erreur lors de la lecture des reponse", Toast.LENGTH_SHORT).show();
-                    }
+                }).addOnFailureListener(e -> {
+                    progressDialog.dismiss();
+                    Toast.makeText(context, "erreur lors de la lecture des reponse", Toast.LENGTH_SHORT).show();
                 });
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                Toast.makeText(context, "erreur de connexion", Toast.LENGTH_SHORT).show();
-            }
+        }).addOnFailureListener(e -> {
+            progressDialog.dismiss();
+            Toast.makeText(context, "erreur de connexion", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -300,27 +310,56 @@ public class FirebaseControle {
     public static void addStudent(Context context, Students students, Contrats contrats){
         ProgressDialog progressDialog = ProgressDialog.show(context, null, "un instant");
         progressDialog.show();
-        addData(STUDENTCOLLECTION, students).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                String id = documentReference.getId();
-                FirebaseControle.getCollection(STUDENTCOLLECTION).document(id).update("id", id);
-                contrats.setId_student(id);
-                addData(CONTRATCOLLECTION, contrats).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        FirebaseControle.getCollection(CONTRATCOLLECTION).document(documentReference.getId()).update("id_contrat", documentReference.getId());
-                        progressDialog.dismiss();
-                        ((Activity)context).finish();
-                    }
-                });
+        addData(STUDENTCOLLECTION, students).addOnSuccessListener(documentReference -> {
+            String id = documentReference.getId();
+            FirebaseControle.getCollection(STUDENTCOLLECTION).document(id).update("id", id);
+            contrats.setId_student(id);
+            addData(CONTRATCOLLECTION, contrats).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference2) {
+                    String id2 = documentReference2.getId();
+                    FirebaseControle.getCollection(CONTRATCOLLECTION).document(id2).update("id_contrat", id2);
+                    progressDialog.dismiss();
+                    ((Activity)context).finish();
+                }
+            });
 
+        }).addOnFailureListener(e -> {
+            progressDialog.dismiss();
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+        });
+    }
+
+
+    public static void chargeStudentData(final Context context, final ListView list, final TextView error, final List<Students> liste, String mail){
+        final List<Students> students = new ArrayList<>();
+        getParticularData(STUDENTCOLLECTION, "email_prof", mail).addOnSuccessListener(queryDocumentSnapshots -> {
+            StringBuilder builder = new StringBuilder();
+            Students student = null;
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                student =documentSnapshot.toObject(Students.class);
+                students.add(student);
+                liste.add(student);
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+
+            if (student == null){
+                error.setVisibility(View.VISIBLE);
+                list.setVisibility(View.GONE);
+            }else {
+                error.setVisibility(View.GONE);
+                list.setVisibility(View.VISIBLE);
+
+                String [] nameStudents = new String[students.size()];
+                String [] niveau = new String[students.size()];
+                Collections.sort(liste, Students.comparatorDate);
+                Collections.sort(students, Students.comparatorDate);
+
+                for (int i=0; i<nameStudents.length; i++){
+                    nameStudents[i] = students.get(i).getNom() + " " + students.get(i).getPrenom();
+                    niveau[i] = students.get(i).getClasse();
+                }
+                StudentsAdapter adapter = new StudentsAdapter(context, niveau, nameStudents);
+                list.setAdapter(adapter);
             }
         });
     }

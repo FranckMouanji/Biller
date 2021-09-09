@@ -19,9 +19,12 @@ import com.MouanjiFranck.biller.controller.FirebaseControle;
 import com.MouanjiFranck.biller.model.Contrats;
 import com.MouanjiFranck.biller.model.Students;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.Timestamp;
+import java.util.Date;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BuildContrat extends AppCompatActivity {
     ImageView back;
@@ -58,19 +61,14 @@ public class BuildContrat extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         stu_classe.setAdapter(adapter);
 
-        stu_date_payement.getEditText().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Controller.showDatePickerDialog(BuildContrat.this, stu_date_payement.getEditText());
-            }
-        });
+        Objects.requireNonNull(stu_date_payement.getEditText()).setOnClickListener(view -> Controller.showDatePickerDialog(BuildContrat.this, stu_date_payement.getEditText()));
 
         back.setOnClickListener(view -> finish());
 
         next.setOnClickListener(view -> {
             String classe = stu_classe.getSelectedItem().toString();
-            if(stu_name.getEditText().getText().toString().equals("") || stu_prenom.getEditText().getText().toString().equals("") ||
-                stu_name_parent.getEditText().getText().toString().equals("") || stu_prenom_parent.getEditText().getText().toString().equals("") ||
+            if(Objects.requireNonNull(stu_name.getEditText()).getText().toString().equals("") || Objects.requireNonNull(stu_prenom.getEditText()).getText().toString().equals("") ||
+                Objects.requireNonNull(stu_name_parent.getEditText()).getText().toString().equals("") || Objects.requireNonNull(stu_prenom_parent.getEditText()).getText().toString().equals("") ||
                 classe.equals("Niveau scolaire")){
                 Toast.makeText(BuildContrat.this, "Tous les chanps sont requis", Toast.LENGTH_SHORT).show();
 
@@ -80,31 +78,33 @@ public class BuildContrat extends AppCompatActivity {
             }
         });
 
-        build_send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(number.getEditText().getText().toString().equals("") || second_number.getEditText().getText().toString().equals("") ||
-                        salaire.getEditText().getText().toString().equals("") || stu_date_payement.getEditText().getText().toString().equals("")){
-                    Toast.makeText(BuildContrat.this, "Tous les chanps sont requis", Toast.LENGTH_SHORT).show();
+        build_send.setOnClickListener(view -> {
+            if(number.getEditText().getText().toString().equals("") || second_number.getEditText().getText().toString().equals("") ||
+                    salaire.getEditText().getText().toString().equals("") || stu_date_payement.getEditText().getText().toString().equals("")){
+                Toast.makeText(BuildContrat.this, "Tous les chanps sont requis", Toast.LENGTH_SHORT).show();
 
-                }else{
-                    String name_student = stu_name.getEditText().getText().toString();
-                    String prenom_student = stu_prenom.getEditText().getText().toString();
-                    String classe = stu_classe.getSelectedItem().toString();
-                    Students student = new Students("", name_student, prenom_student, classe);
+            }else{
+                String name_student = Objects.requireNonNull(stu_name.getEditText()).getText().toString();
+                String prenom_student = Objects.requireNonNull(stu_prenom.getEditText()).getText().toString();
+                String classe = stu_classe.getSelectedItem().toString();
+                Students student = new Students("", name_student, prenom_student, classe);
 
-                    String parent_name = stu_name_parent.getEditText().getText().toString();
-                    String parent_last_name = stu_prenom_parent.getEditText().getText().toString();
-                    String first_number_parent = number.getEditText().getText().toString();
-                    String second_number_parent = second_number.getEditText().getText().toString();
-                    String pay = salaire.getEditText().getText().toString();
-                    String date_payment = stu_date_payement.getEditText().getText().toString();
-                    String userMail = Controller.recupEmailUser(BuildContrat.this);
+                String parent_name = Objects.requireNonNull(stu_name_parent.getEditText()).getText().toString();
+                String parent_last_name = Objects.requireNonNull(stu_prenom_parent.getEditText()).getText().toString();
+                String first_number_parent = number.getEditText().getText().toString();
+                String second_number_parent = second_number.getEditText().getText().toString();
+                String pay = salaire.getEditText().getText().toString();
+                String date_payment = stu_date_payement.getEditText().getText().toString();
+                String userMail = Controller.recupEmailUser(BuildContrat.this);
 
-                    Contrats contrat = new Contrats("", userMail, "", parent_name, parent_last_name, first_number_parent, second_number_parent, pay, date_payment);
+                Date date = new Date();
+                Timestamp timestamp = new Timestamp(date);
 
-                    FirebaseControle.addStudent(BuildContrat.this, student, contrat);
-                }
+                student.setEmail_prof(userMail);
+                student.setDateCreation(timestamp);
+                Contrats contrat = new Contrats("", userMail, "", parent_name, parent_last_name, first_number_parent, second_number_parent, pay, date_payment);
+
+                FirebaseControle.addStudent(BuildContrat.this, student, contrat);
             }
         });
     }

@@ -9,14 +9,25 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.MouanjiFranck.biller.Activities.BuildContrat;
 import com.MouanjiFranck.biller.R;
 import com.MouanjiFranck.biller.controller.Controller;
+import com.MouanjiFranck.biller.controller.FirebaseControle;
 import com.MouanjiFranck.biller.databinding.FragmentHomeBinding;
+import com.MouanjiFranck.biller.model.Students;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -25,6 +36,13 @@ public class HomeFragment extends Fragment {
     ImageView bt_add_user;
     ListView list_eleve;
     TextView no_student;
+
+    //variable de firebase
+    ListenerRegistration registration;
+
+
+    List<Students> liste = new ArrayList<>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,12 +53,15 @@ public class HomeFragment extends Fragment {
 
         initViews(root);
 
-        bt_add_user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(root.getContext(), BuildContrat.class);
-                root.getContext().startActivity(intent);
-            }
+        bt_add_user.setOnClickListener(view -> {
+            Intent intent = new Intent(root.getContext(), BuildContrat.class);
+            root.getContext().startActivity(intent);
+        });
+
+        registration = FirebaseControle.getStudentsCollection().addSnapshotListener((value, error) -> {
+            Toast.makeText(root.getContext(), "firestore", Toast.LENGTH_SHORT).show();
+            String userMail = Controller.recupEmailUser(root.getContext());
+            FirebaseControle.chargeStudentData(root.getContext(), list_eleve, no_student, liste, userMail);
         });
 
         return root;
@@ -58,4 +79,7 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
+
 }

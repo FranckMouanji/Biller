@@ -1,10 +1,17 @@
 package com.MouanjiFranck.biller.model;
 
+
+import com.google.firebase.Timestamp;
+
+import java.util.Comparator;
+
 public class Students {
     private String id;
     private String nom;
     private String prenom;
     private String classe;
+    private String email_prof;
+    private Timestamp dateCreation;
 
     public Students() {
     }
@@ -47,4 +54,22 @@ public class Students {
     public void setClasse(String classe) {
         this.classe = classe;
     }
+
+    public String getEmail_prof() {
+        return email_prof;
+    }
+
+    public void setEmail_prof(String email_prof) {
+        this.email_prof = email_prof;
+    }
+
+    public Timestamp getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Timestamp dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public static Comparator<Students> comparatorDate = (students, t1) -> students.getDateCreation().compareTo(t1.getDateCreation());
 }

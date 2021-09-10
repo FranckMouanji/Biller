@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.controller.Controller;
+import com.MouanjiFranck.biller.system.Controller;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        Controller.haveStoragePermission(MainActivity.this);
 
         timer = new Timer();
         timer.schedule(new TimerTask() {

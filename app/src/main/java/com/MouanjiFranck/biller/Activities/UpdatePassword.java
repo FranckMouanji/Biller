@@ -9,8 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.controller.Controller;
-import com.MouanjiFranck.biller.controller.FirebaseControle;
+import com.MouanjiFranck.biller.firebase_action.ActionAboutUsers;
+import com.MouanjiFranck.biller.system.Controller;
 import com.MouanjiFranck.biller.model.Users;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -57,7 +57,7 @@ public class UpdatePassword extends AppCompatActivity {
             }else if(!(password.equals(confirm_password))){
                 Toast.makeText(UpdatePassword.this, "Les mots de passe ne correspondent pas", Toast.LENGTH_SHORT).show();
             }else{
-                FirebaseControle.change_passWord(UpdatePassword.this, finalUsers, password, finalId);
+                ActionAboutUsers.change_passWord(UpdatePassword.this, finalUsers, password, finalId);
             }
         });
     }
@@ -70,9 +70,9 @@ public class UpdatePassword extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        FirebaseControle.logout();
+        ActionAboutUsers.logout();
         Intent intent = new Intent(UpdatePassword.this, Login.class);
-        FirebaseControle.autoConnexion();
+        ActionAboutUsers.autoConnexion();
         startActivity(intent);
         finish();
     }

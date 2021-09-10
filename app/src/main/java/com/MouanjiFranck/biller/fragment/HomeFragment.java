@@ -1,6 +1,5 @@
 package com.MouanjiFranck.biller.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,19 +11,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.MouanjiFranck.biller.Activities.BuildContrat;
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.controller.Controller;
-import com.MouanjiFranck.biller.controller.FirebaseControle;
+import com.MouanjiFranck.biller.firebase_action.ActionAboutStudents;
+import com.MouanjiFranck.biller.system.Controller;
 import com.MouanjiFranck.biller.databinding.FragmentHomeBinding;
 import com.MouanjiFranck.biller.model.Students;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,10 +53,10 @@ public class HomeFragment extends Fragment {
             root.getContext().startActivity(intent);
         });
 
-        registration = FirebaseControle.getStudentsCollection().addSnapshotListener((value, error) -> {
+        registration = ActionAboutStudents.getStudentsCollection().addSnapshotListener((value, error) -> {
             Toast.makeText(root.getContext(), "firestore", Toast.LENGTH_SHORT).show();
             String userMail = Controller.recupEmailUser(root.getContext());
-            FirebaseControle.chargeStudentData(root.getContext(), list_eleve, no_student, liste, userMail);
+            ActionAboutStudents.chargeStudentData(root.getContext(), list_eleve, no_student, liste, userMail);
         });
 
         return root;

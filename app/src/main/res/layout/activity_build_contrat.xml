@@ -36,6 +36,7 @@
 
     </ScrollView>
 
+
     <ScrollView
         android:id="@+id/part_2"
         android:layout_width="match_parent"

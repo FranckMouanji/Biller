@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.controller.Controller;
+import com.MouanjiFranck.biller.system.Controller;
 import com.MouanjiFranck.biller.databinding.FragmentCompteBinding;
-import com.MouanjiFranck.biller.databinding.FragmentHomeBinding;
 
 public class CompteFragment extends Fragment {
 

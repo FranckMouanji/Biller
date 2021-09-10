@@ -33,4 +33,6 @@
     <string name="nom_du_parent">Parent\'s name</string>
     <string name="prenom_du_parent">Parent\'s first name</string>
     <string name="date_de_payement">Payment date</string>
+    <string name="effacer">Effacer</string>
+    <string name="enregistrer">Enregistrer</string>
 </resources>

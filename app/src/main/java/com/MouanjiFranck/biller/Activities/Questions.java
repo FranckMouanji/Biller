@@ -8,8 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.controller.Controller;
-import com.MouanjiFranck.biller.controller.FirebaseControle;
+import com.MouanjiFranck.biller.firebase_action.ActionAboutUsers;
+import com.MouanjiFranck.biller.system.Controller;
 import com.MouanjiFranck.biller.model.Answers;
 import com.MouanjiFranck.biller.model.Users;
 import com.google.android.material.textfield.TextInputLayout;
@@ -60,9 +60,9 @@ public class Questions extends AppCompatActivity {
                     String answer3 = Controller.encrypt(Objects.requireNonNull(quest_answer3.getEditText()).getText().toString(), a);
 
                     if(finalUse){
-                        FirebaseControle.logout();
+                        ActionAboutUsers.logout();
                         Answers answers = new Answers(finalUsers.getEmail(), answer1, answer2, answer3);
-                        FirebaseControle.createUser(finalUsers, answers, Questions.this);
+                        ActionAboutUsers.createUser(finalUsers, answers, Questions.this);
                     }else{
                         //todo
                         Toast.makeText(Questions.this, mail, Toast.LENGTH_SHORT).show();
@@ -75,7 +75,7 @@ public class Questions extends AppCompatActivity {
                 String answer2 = Objects.requireNonNull(quest_answer2.getEditText()).getText().toString();
                 String answer3 = Objects.requireNonNull(quest_answer3.getEditText()).getText().toString();
                 Answers answers = new Answers(mail, answer1, answer2, answer3);
-                FirebaseControle.VerifAnswer("Users", "email", Questions.this, answers);
+                ActionAboutUsers.VerifAnswer("Users", "email", Questions.this, answers);
             }
         });
     }

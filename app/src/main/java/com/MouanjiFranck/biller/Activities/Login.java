@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.controller.FirebaseControle;
+import com.MouanjiFranck.biller.firebase_action.ActionAboutUsers;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
             if(mail.isEmpty()){
                 Toast.makeText(Login.this, "Entrez votre mail", Toast.LENGTH_SHORT).show();
             }else{
-                FirebaseControle.verifMailForPassword("Users", "email", mail, Login.this);
+                ActionAboutUsers.verifMailForPassword("Users", "email", mail, Login.this);
             }
 
         });
@@ -53,15 +53,15 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this, "entrez votre mot de passe", Toast.LENGTH_SHORT).show();
                 log_password.requestFocus();
             }else{
-                FirebaseControle.logout();
-                FirebaseControle.singUser(email, password, Login.this);
+                ActionAboutUsers.logout();
+                ActionAboutUsers.singUser(email, password, Login.this);
             }
         });
     }
 
     private void init() {
 
-        FirebaseControle.autoConnexion();
+        ActionAboutUsers.autoConnexion();
 
         no_account = findViewById(R.id.no_account);
         password_forget = findViewById(R.id.password_forget);

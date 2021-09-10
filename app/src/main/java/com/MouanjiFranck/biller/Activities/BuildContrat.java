@@ -1,7 +1,5 @@
 package com.MouanjiFranck.biller.Activities;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,16 +12,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.controller.Controller;
-import com.MouanjiFranck.biller.controller.FirebaseControle;
+import com.MouanjiFranck.biller.system.Controller;
 import com.MouanjiFranck.biller.model.Contrats;
 import com.MouanjiFranck.biller.model.Students;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.Timestamp;
+
 import java.util.Date;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class BuildContrat extends AppCompatActivity {
@@ -46,6 +42,8 @@ public class BuildContrat extends AppCompatActivity {
     TextInputLayout stu_date_payement;
 
     Spinner stu_classe;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,12 +100,16 @@ public class BuildContrat extends AppCompatActivity {
 
                 student.setEmail_prof(userMail);
                 student.setDateCreation(timestamp);
-                Contrats contrat = new Contrats("", userMail, "", parent_name, parent_last_name, first_number_parent, second_number_parent, pay, date_payment);
+                Contrats contrat = new Contrats("", userMail, "", parent_name, parent_last_name, first_number_parent, second_number_parent, pay, date_payment, "");
 
-                FirebaseControle.addStudent(BuildContrat.this, student, contrat);
+                Controller.signatureContratDialog(BuildContrat.this, student, contrat);
             }
         });
+
+
     }
+
+
 
     private void init() {
         part_1 = findViewById(R.id.part_1);
@@ -128,6 +130,8 @@ public class BuildContrat extends AppCompatActivity {
         next = findViewById(R.id.next);
         back = findViewById(R.id.back);
         build_send = findViewById(R.id.build_send);
+
+
     }
 
     @Override
@@ -135,6 +139,7 @@ public class BuildContrat extends AppCompatActivity {
         if(part_2.getVisibility() == View.VISIBLE){
             part_2.setVisibility(View.GONE);
             part_1.setVisibility(View.VISIBLE);
+
         }else{
             super.onBackPressed();
         }

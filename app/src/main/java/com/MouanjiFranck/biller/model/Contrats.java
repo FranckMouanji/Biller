@@ -11,11 +11,12 @@ public class Contrats {
     private String second_numero;
     private String salaire;
     private String date_payement;
+    private String sign;
 
     public Contrats() {
     }
 
-    public Contrats(String id_contrat, String email_repetiteur, String id_student, String nom_pere, String prenom_pere, String numero_pere, String second_numero, String salaire, String date_payement) {
+    public Contrats(String id_contrat, String email_repetiteur, String id_student, String nom_pere, String prenom_pere, String numero_pere, String second_numero, String salaire, String date_payement, String sign) {
         this.id_contrat = id_contrat;
         this.email_repetiteur = email_repetiteur;
         this.id_student = id_student;
@@ -25,6 +26,7 @@ public class Contrats {
         this.second_numero = second_numero;
         this.salaire = salaire;
         this.date_payement = date_payement;
+        this.sign = sign;
     }
 
     public String getId_contrat() {
@@ -97,5 +99,13 @@ public class Contrats {
 
     public void setDate_payement(String date_payement) {
         this.date_payement = date_payement;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
     }
 }

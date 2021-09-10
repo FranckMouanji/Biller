@@ -34,6 +34,8 @@
     <string name="nom_du_parent">nom du parent</string>
     <string name="prenom_du_parent">prenom du parent</string>
     <string name="date_de_payement">Date de payement</string>
+    <string name="effacer">Effacer</string>
+    <string name="enregistrer">Enregistrer</string>
 
     <string-array name="classe">
         <item>Niveau scolaire</item>

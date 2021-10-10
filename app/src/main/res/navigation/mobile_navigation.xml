@@ -12,20 +12,32 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.MouanjiFranck.biller.fragment.FileFragment"
-        android:label="@string/nouvel_l_ve"
-        tools:layout="@layout/fragment_file" />
+        android:id="@+id/nav_forum"
+        android:name="com.MouanjiFranck.biller.fragment.ForumFragment"
+        android:label="@string/forum"
+        tools:layout="@layout/fragment_forum" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.MouanjiFranck.biller.fragment.SlideshowFragment"
+        android:id="@+id/nav_gestionnaire_fichier"
+        android:name="com.MouanjiFranck.biller.fragment.ForumFragment"
+        android:label="@string/gestionnaire_fichier"
+        tools:layout="@layout/gestion_fichier_fragment" />
+
+    <fragment
+        android:id="@+id/nav_question_reponse"
+        android:name="com.MouanjiFranck.biller.fragment.ForumFragment"
+        android:label="@string/question_reponse"
+        tools:layout="@layout/question_reponse_fragment" />
+
+    <fragment
+        android:id="@+id/nav_a_propos"
+        android:name="com.MouanjiFranck.biller.fragment.AProposFragment"
         android:label="@string/a_propos"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_a_propos" />
 
     <fragment
         android:id="@+id/nav_compte"
         android:name="com.MouanjiFranck.biller.fragment.CompteFragment"
-        android:label="mon compte"
+        android:label="@string/mon_compte"
         tools:layout="@layout/fragment_compte" />
 </navigation>

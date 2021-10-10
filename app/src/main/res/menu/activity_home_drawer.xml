@@ -8,13 +8,19 @@
             android:id="@+id/nav_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:title="@string/nouvel_l_ve" />
+            android:id="@+id/nav_forum"
+            android:title="@string/forum" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_gestionnaire_fichier"
+            android:title="@string/gestionnaire_fichier" />
+        <item
+            android:id="@+id/nav_question_reponse"
+            android:title="@string/question_reponse" />
+        <item
+            android:id="@+id/nav_a_propos"
             android:title="@string/a_propos" />
         <item
             android:id="@+id/nav_compte"
-            android:title="mon compte" />
+            android:title="@string/mon_compte" />
     </group>
 </menu>

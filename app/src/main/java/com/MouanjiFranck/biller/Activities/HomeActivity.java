@@ -1,5 +1,6 @@
 package com.MouanjiFranck.biller.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -12,6 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.MouanjiFranck.biller.R;
 import com.MouanjiFranck.biller.databinding.ActivityHomeBinding;
+import com.MouanjiFranck.biller.system.DialogInform;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -27,16 +29,28 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        //getInformation to connexion
+        Intent intent = getIntent();
+        if(intent.hasExtra("connexion")){
+            String message = intent.getStringExtra("connexion");
+            if(message.equals("false")){
+                DialogInform.connexionDialog(HomeActivity.this);
+            }
+        }
+
         setSupportActionBar(binding.appBarHome.toolbar);
-        
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_forum, R.id.nav_a_propos)
                 .setOpenableLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);

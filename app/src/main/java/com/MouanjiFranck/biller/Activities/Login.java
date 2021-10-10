@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.MouanjiFranck.biller.R;
 import com.MouanjiFranck.biller.firebase_action.ActionAboutUsers;
+import com.MouanjiFranck.biller.system.DialogInform;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
@@ -61,7 +62,15 @@ public class Login extends AppCompatActivity {
 
     private void init() {
 
+        Intent intent = getIntent();
+        if(intent.hasExtra("connexion")){
+            String message = intent.getStringExtra("connexion");
+            if(message.equals("false")){
+                DialogInform.connexionDialog(Login.this);
+            }
+        }
         ActionAboutUsers.autoConnexion();
+
 
         no_account = findViewById(R.id.no_account);
         password_forget = findViewById(R.id.password_forget);

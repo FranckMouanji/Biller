@@ -16,6 +16,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -74,10 +76,11 @@ public class Controller {
     public static void delete_file(Context context){
         ProgressDialog progressDialog = ProgressDialog.show(context, null, "un instant");
         progressDialog.show();
-        context.deleteFile(FILE_NAME);
         ActionAboutUsers.logout();
+        context.deleteFile(FILE_NAME);
         Intent intent  = new Intent(context, Login.class);
         progressDialog.dismiss();
+        Toast.makeText(context, "Logout", Toast.LENGTH_SHORT).show();
         context.startActivity(intent);
         ((Activity) context).finish();
     }
@@ -88,7 +91,7 @@ public class Controller {
         if (users != null){
             String user_mail = users.getEmail();
             String user_name = users.getName()+" "+users.getSurname();
-            String contenu_ecrit = user_mail+"  "+user_name;
+            String contenu_ecrit = user_mail+"  "+user_name+ "  "+ String.valueOf(users.getStatut()) + "  " + "end";
 
             FileOutputStream fileOutputStream = null;
 
@@ -167,8 +170,17 @@ public class Controller {
     }
 
     public static String recupEmailUser(Context context){
+        if(file_not_empty(context)){
+            String [] informations = take_information_of_file_users(context).split(" {2}");
+            return  informations[0];
+        }else{
+            return null;
+        }
+    }
+
+    public static int recupStatut(Context context){
         String [] informations = take_information_of_file_users(context).split(" {2}");
-        return  informations[0];
+        return  Integer.parseInt(informations[2]);
     }
 
 
@@ -393,6 +405,13 @@ public class Controller {
             }
         }
         return returnStament;
+    }
+
+    public boolean isOnline(Context context) {
+        ConnectivityManager connMgr = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isConnected());
     }
 
 }

@@ -35,4 +35,11 @@
     <string name="date_de_payement">Payment date</string>
     <string name="effacer">Effacer</string>
     <string name="enregistrer">Enregistrer</string>
+    <string name="forum">Forum</string>
+    <string name="pas_de_forum">pas de forum</string>
+    <string name="photo_de_profile">photo de profile</string>
+    <string name="selection_fichier">Selectionner un fichier</string>
+    <string name="gestionnaire_fichier">Gestionnaire de fichier</string>
+    <string name="question_reponse">Question-Reponse</string>
+    <string name="mon_compte">Mon compte</string>
 </resources>

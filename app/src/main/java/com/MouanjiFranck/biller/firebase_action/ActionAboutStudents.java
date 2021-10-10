@@ -69,8 +69,7 @@ public class ActionAboutStudents {
         progressDialog.setTitle("Uploading...");
         progressDialog.show();
 
-        StorageReference reference = StorageControle.getFileReference().child(SIGNATUREPATH + System.currentTimeMillis() + ".png");
-        reference.putFile(data)
+        StorageControle.setFile(SIGNATUREPATH,"png", data)
                 .addOnSuccessListener(taskSnapshot -> {
                     Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
                     while (!uri.isComplete()) ;

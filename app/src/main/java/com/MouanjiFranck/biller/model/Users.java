@@ -9,18 +9,20 @@ public class Users implements Serializable {
     private String email;
     private String password;
     private int statut;
+    private String niveau;
 
     public Users(){
 
     }
 
-    public Users(String image_profile, String name, String surname, String email, String password, int statut) {
+    public Users(String image_profile, String name, String surname, String email, String password, int statut, String niveau) {
         this.image_profile = image_profile;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
         this.statut = statut;
+        this.niveau = niveau;
     }
 
     public String getName() {
@@ -55,11 +57,27 @@ public class Users implements Serializable {
         this.password = password;
     }
 
+    public String getImage_profile() {
+        return image_profile;
+    }
+
+    public void setImage_profile(String image_profile) {
+        this.image_profile = image_profile;
+    }
+
     public int getStatut() {
         return statut;
     }
 
     public void setStatut(int statut) {
         this.statut = statut;
+    }
+
+    public String getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(String niveau) {
+        this.niveau = niveau;
     }
 }

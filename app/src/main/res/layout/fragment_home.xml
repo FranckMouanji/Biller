@@ -7,41 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
-    <ImageView
-        android:id="@+id/bt_add_user"
+    <Spinner
+        android:id="@+id/choose_course"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingStart="20dp"
+        android:layout_margin="30dp"
+        android:background="@drawable/border"
+        tools:ignore="RtlSymmetry" />
+
+    <ListView
+        android:id="@+id/list_cours"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/no_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="right"
-        android:src="@drawable/ic_add"
-        tools:ignore="RtlHardcoded" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
-
-        <ListView
-            android:id="@+id/list_eleve"
-            android:layout_width="match_parent"
-            android:visibility="gone"
-            android:layout_height="match_parent"/>
-
-        <TextView
-            android:id="@+id/no_student"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pas_d_l_ve"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            />
-
-    </LinearLayout>
+        android:text="aucun fichier"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        />
 
 
 </LinearLayout>

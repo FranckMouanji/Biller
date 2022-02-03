@@ -39,10 +39,16 @@
     <string name="forum">Forum</string>
     <string name="pas_de_forum">pas de forum</string>
     <string name="photo_de_profile">Photo de profile</string>
-    <string name="selection_fichier">Selectionner un fichier</string>
+    <string name="selection_fichier">Sélectionner un fichier</string>
     <string name="gestionnaire_fichier">Gestionnaire de fichier</string>
-    <string name="question_reponse">Question-Reponse</string>
+    <string name="question_reponse">Question-Réponse</string>
     <string name="mon_compte">Mon compte</string>
+    <string name="cours">cours</string>
+    <string name="exercices">Exercices</string>
+    <string name="essaie_de_correction">Essaie de correction</string>
+    <string name="outils">Outils</string>
+    <string name="informations">Informations</string>
+    <string name="nous_contacter">nous_contacter</string>
 
     <string-array name="classe">
         <item>Niveau scolaire</item>
@@ -66,4 +72,18 @@
         <item>CM2</item>
         <item>CM1</item>
     </string-array>
+
+    <string-array name="elementAffichage">
+        <item>Tous</item>
+        <item>Physiques</item>
+        <item>Chimie</item>
+        <item>Mathématiques</item>
+        <item>SVT</item>
+        <item>Informatique</item>
+        <item>Philosophie</item>
+        <item>Littérature</item>
+        <item>Histoire/Geographie</item>
+        <item>ECM</item>
+    </string-array>
+
 </resources>

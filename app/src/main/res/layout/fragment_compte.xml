@@ -20,12 +20,51 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             />
 
 
         <View
             android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/contrat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mes contrats"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp" />
+
+
+        <TextView
+            android:id="@+id/groupe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mes groupes de repetitions"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <View
+            android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/white"
@@ -44,7 +83,7 @@
             />
 
         <View
-            android:id="@+id/divider2"
+            android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/white"

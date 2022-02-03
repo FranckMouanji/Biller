@@ -21,7 +21,7 @@ public class StudentsAdapter  extends ArrayAdapter<String> {
 
 
     public StudentsAdapter(Context m_context, String[] niveau, String[] nom){
-        super(m_context, R.layout.layout_content, niveau);
+        super(m_context, R.layout.layout_content_student, niveau);
         context = m_context;
         this.niveau = niveau;
         nomEleve = nom;
@@ -33,7 +33,7 @@ public class StudentsAdapter  extends ArrayAdapter<String> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater)context.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert layoutInflater != null;
-        @SuppressLint("ViewHolder") View view = layoutInflater.inflate(R.layout.layout_content, parent, false);
+        @SuppressLint("ViewHolder") View view = layoutInflater.inflate(R.layout.layout_content_student, parent, false);
         TextView niveau = view.findViewById(R.id.item2);
         TextView  nom_eleve = view.findViewById(R.id.item1);
 

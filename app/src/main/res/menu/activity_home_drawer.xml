@@ -6,21 +6,68 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_forum"
-            android:title="@string/forum" />
+            android:id="@+id/nav_cour"
+            android:icon="@drawable/ic_cour"
+            android:title="@string/cours" />
+
+        <item
+            android:id="@+id/nav_exercice"
+            android:icon="@drawable/ic_exercice"
+            android:title="@string/exercices" />
+
+        <item
+            android:id="@+id/nav_correction_exercice"
+            android:icon="@drawable/ic_correction_exercice"
+            android:title="@string/essaie_de_correction" />
+
         <item
             android:id="@+id/nav_gestionnaire_fichier"
+            android:icon="@drawable/ic_cloud_upload"
             android:title="@string/gestionnaire_fichier" />
+
+
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_forum"
+            android:title="@string/forum" />
+
+
+
         <item
             android:id="@+id/nav_question_reponse"
+            android:icon="@drawable/ic_question_answer"
             android:title="@string/question_reponse" />
+
         <item
-            android:id="@+id/nav_a_propos"
-            android:title="@string/a_propos" />
-        <item
-            android:id="@+id/nav_compte"
-            android:title="@string/mon_compte" />
+            android:id="@+id/nav_outils"
+            android:icon="@drawable/ic_outils"
+            android:title="@string/outils" />
+
+
     </group>
+
+    <item
+        android:title="@string/informations"
+        >
+        <menu>
+
+            <item
+                android:id="@+id/nav_a_propos"
+                android:title="@string/a_propos" />
+
+            <item
+                android:id="@+id/nav_nous_contacter"
+                android:title="@string/nous_contacter"/>
+
+            <item
+                android:id="@+id/nav_compte"
+                android:title="@string/mon_compte" />
+
+        </menu>
+
+
+    </item>
 </menu>

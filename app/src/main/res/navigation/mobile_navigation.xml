@@ -12,16 +12,35 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_forum"
-        android:name="com.MouanjiFranck.biller.fragment.ForumFragment"
-        android:label="@string/forum"
-        tools:layout="@layout/fragment_forum" />
+        android:id="@+id/nav_cour"
+        android:name="com.MouanjiFranck.biller.fragment.HomeFragment"
+        android:label="Cours"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_exercice"
+        android:name="com.MouanjiFranck.biller.fragment.HomeFragment"
+        android:label="Exercices"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_correction_exercice"
+        android:name="com.MouanjiFranck.biller.fragment.HomeFragment"
+        android:label="Essaie de correction"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gestionnaire_fichier"
         android:name="com.MouanjiFranck.biller.fragment.ForumFragment"
         android:label="@string/gestionnaire_fichier"
         tools:layout="@layout/gestion_fichier_fragment" />
+
+
+    <fragment
+        android:id="@+id/nav_forum"
+        android:name="com.MouanjiFranck.biller.fragment.ForumFragment"
+        android:label="@string/forum"
+        tools:layout="@layout/fragment_forum" />
 
     <fragment
         android:id="@+id/nav_question_reponse"
@@ -30,9 +49,22 @@
         tools:layout="@layout/question_reponse_fragment" />
 
     <fragment
+        android:id="@+id/nav_outils"
+        android:name="com.MouanjiFranck.biller.fragment.CompteFragment"
+        android:label="Outils"
+        tools:layout="@layout/fragment_compte" />
+
+
+    <fragment
         android:id="@+id/nav_a_propos"
         android:name="com.MouanjiFranck.biller.fragment.AProposFragment"
         android:label="@string/a_propos"
+        tools:layout="@layout/fragment_a_propos" />
+
+    <fragment
+        android:id="@+id/nav_nous_contacter"
+        android:name="com.MouanjiFranck.biller.fragment.AProposFragment"
+        android:label="Nous contacter"
         tools:layout="@layout/fragment_a_propos" />
 
     <fragment

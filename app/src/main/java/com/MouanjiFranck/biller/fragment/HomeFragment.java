@@ -1,45 +1,28 @@
 package com.MouanjiFranck.biller.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.MouanjiFranck.biller.Activities.BuildContrat;
-import com.MouanjiFranck.biller.Activities.HomeActivity;
 import com.MouanjiFranck.biller.R;
-import com.MouanjiFranck.biller.firebase_action.ActionAboutStudents;
-import com.MouanjiFranck.biller.system.Controller;
 import com.MouanjiFranck.biller.databinding.FragmentHomeBinding;
-import com.MouanjiFranck.biller.model.Students;
-import com.MouanjiFranck.biller.system.DialogInform;
-import com.google.firebase.firestore.ListenerRegistration;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    ImageView bt_add_user;
-    ListView list_eleve;
-    TextView no_student;
+    Spinner choose_course;
+    ListView list_cours;
+    TextView no_course;
 
-    //variable de firebase
-    ListenerRegistration registration;
-
-
-    List<Students> liste = new ArrayList<>();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,47 +32,25 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        //initialisation
         initViews(root);
 
-        bt_add_user.setOnClickListener(view -> {
-            int statutActuel = Controller.recupStatut(root.getContext());
-            Log.e("statut", Integer.toString(statutActuel));
+        //charge data to spinner
+        String[] list= getResources().getStringArray(R.array.elementAffichage);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(root.getContext(), R.layout.spinner_item, list);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        choose_course.setAdapter(adapter);
 
-            switch (statutActuel){
-                case 1:
-                    DialogInform.addStudent(root.getContext());
-                    break;
-                case 2:
-                    Intent intent = new Intent(root.getContext(), BuildContrat.class);
-                    root.getContext().startActivity(intent);
-                    break;
-                case 3:
-                    DialogInform.addStudentDeux(root.getContext());
-                    break;
-                default:
-                    Log.e("statut", Integer.toString(statutActuel));
-                    break;
-            }
 
-        });
-
-        if(Controller.file_not_empty(root.getContext())){
-            registration = ActionAboutStudents.getStudentsCollection().addSnapshotListener((value, error) -> {
-                Toast.makeText(root.getContext(), "firestore", Toast.LENGTH_SHORT).show();
-                String userMail = Controller.recupEmailUser(root.getContext());
-                if(userMail != null){
-                    ActionAboutStudents.chargeStudentData(root.getContext(), list_eleve, no_student, liste, userMail);
-                }
-            });
-        }
 
         return root;
     }
 
-    private void initViews(View root) {
-        bt_add_user = root.findViewById(R.id.bt_add_user);
-        list_eleve = root.findViewById(R.id.list_eleve);
-        no_student = root.findViewById(R.id.no_student);
+
+    void initViews(View root){
+        choose_course = root.findViewById(R.id.choose_course);
+        list_cours = root.findViewById(R.id.list_cours);
+        no_course = root.findViewById(R.id.no_course);
     }
 
 

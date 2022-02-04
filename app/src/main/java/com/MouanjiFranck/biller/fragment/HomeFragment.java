@@ -14,6 +14,10 @@ import androidx.fragment.app.Fragment;
 
 import com.MouanjiFranck.biller.R;
 import com.MouanjiFranck.biller.databinding.FragmentHomeBinding;
+import com.MouanjiFranck.biller.model.File_uploaded;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -22,6 +26,7 @@ public class HomeFragment extends Fragment {
     Spinner choose_course;
     ListView list_cours;
     TextView no_course;
+    public List<File_uploaded> file_uploadeds = new ArrayList<>();
 
 
 
